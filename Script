@@ -1,4 +1,4 @@
--- TODO: pickup every type of banana, gui
+-- TODO: pickup every type of banana (teleport player for pickup?), gui
 
 
 
@@ -58,6 +58,18 @@ spawn(function()
         wait()
     end
 end)
+
+-- SILVER BANANA
+spawn(function() 
+    while _G.autoPickup == true do
+        local args = {[1] = 2916}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+
+
 
 
 
