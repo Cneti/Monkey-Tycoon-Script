@@ -1,0 +1,60 @@
+_G.autoGrabBanana = true;
+_G.autoBuyRate = true;
+_G.autoBuyMonkey = true;
+_G.autoMergeMonkey = true;
+_G.autoDeposit = true;
+
+local remotePath = game:GetService("ReplicatedStorage").GTycoonClient.Remotes;
+
+
+-- grabs banana off ground
+
+spawn(function() 
+    while _G.autoGrabBanana == true do
+        local args = {[1] = 1}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+
+-- deposits bananas for money
+
+spawn(function() 
+    while _G.autoDeposit == true do
+        remotePath.DepositDrops:FireServer()
+        wait()
+    end
+end)
+
+
+-- increases money earned per second
+
+spawn(function() 
+    while _G.autoBuyRate == true do
+        local args = {[1] = 1}
+        remotePath.BuySpeed:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+
+-- buys monkeys
+
+spawn(function()
+    while _G.autoBuyMonkey == true do
+        local args = {[1] = 1}
+        remotePath.BuyDropper:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+
+-- merges monkeys
+
+spawn(function()
+    while _G.autoMergeMonkey == true do
+        remotePath.MergeDroppers:FireServer()
+        wait()
+    end
+end)
