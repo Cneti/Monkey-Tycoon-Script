@@ -1,9 +1,64 @@
+-- TODO: pickup every type of banana, gui
+
+
+
+_G.autoPickup = true;
 _G.autoBuyRate = true;
 _G.autoBuyMonkey = true;
 _G.autoMergeMonkey = true;
 _G.autoDeposit = true;
 
 local remotePath = game:GetService("ReplicatedStorage").GTycoonClient.Remotes;
+
+
+-- picks up bananas
+
+
+-- YELLOW BANANA
+spawn(function() 
+    while _G.autoPickup == true do
+        local args = {[1] = 1}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+-- GREEN BANANA
+spawn(function() 
+    while _G.autoPickup == true do
+        local args = {[1] = 6}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+-- BLUE BANANA
+spawn(function() 
+    while _G.autoPickup == true do
+        local args = {[1] = 36}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+-- RED BANANA
+spawn(function() 
+    while _G.autoPickup == true do
+        local args = {[1] = 162}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
+-- PURPLE BANANA
+spawn(function() 
+    while _G.autoPickup == true do
+        local args = {[1] = 810}
+        remotePath.GrabDrops:FireServer(unpack(args))
+        wait()
+    end
+end)
+
 
 
 -- deposits bananas for money
